@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float jumpForce = 10f;
+    private bool isGrounded;
     //public float speed;
     private Rigidbody2D rb;
     Vector2 velocity;
@@ -25,5 +27,27 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.MovePosition(rb.position + velocity);
         }
+        if (Input.GetKeyDown(KeyCode.Space) /*&& isGrounded*/)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            Debug.Log("jump");
+
+
+        }
     }
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = true;
+    //    }
+    //}
+
+    //void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
 }

@@ -25,6 +25,12 @@ public class attackScript : MonoBehaviour
             //animator.Play("attack"); // Play the "Jump" animation
             heavyAttack();
         }
+        if (isAttacking == true)
+        {
+            gameObject.tag = "Sword";
+        }
+        else
+            gameObject.tag = "Untagged";
     }
 
     void heavyAttack()
@@ -33,6 +39,7 @@ public class attackScript : MonoBehaviour
         animator.SetTrigger("attackTrigger");
         isAttacking = true;
         StartCoroutine(ResetAttackState());
+       
     }
     IEnumerator ResetAttackState()
     {
